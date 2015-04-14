@@ -592,7 +592,13 @@
       var groupedRows = [], rows, gl = 0, g;
       for (var i = 0, l = groups.length; i < l; i++) {
         g = groups[i];
-        groupedRows[gl++] = g;
+
+        if (g.value != 'Empty') {
+          console.log('skipping');
+          console.log(g);
+          groupedRows[gl++] = g;
+        }
+
 
         if (!g.collapsed) {
           rows = g.groups ? flattenGroupedRows(g.groups, level + 1) : g.rows;
